@@ -6,7 +6,7 @@ Date: 2023-07-11
 Author: Mahedi AM Hasan, Paolo Cremaschi
 Maintainer: Mahedi AM Hasan <a.m.m.hasan@ucl.ac.uk>
 License: MIT + file LICENSE
-Description: This package provide functions to reconstruc tumor clone phylogeny based on copy-number variants.
+Description: This package provide functions to reconstruct tumor clone phylogeny based on copy-number variants.
 biocViews:
 Depends: QDNAseq, ACE
 RoxygenNote: 6.0.1
