@@ -1,0 +1,6 @@
+importFrom("stats", "aggregate", "density", "median", "t.test")
+import(QDNAseq)
+import(ACE)
+
+# Utils
+export(scr.version)
