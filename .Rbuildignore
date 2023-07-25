@@ -2,3 +2,5 @@
 .gitignore
 .git$
 .git/*
+^.*\.Rproj$
+^\.Rproj\.user$
