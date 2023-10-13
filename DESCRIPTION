@@ -3,10 +3,27 @@ Type: Package
 Title: Tumor clone phylogeny based on copy-number variants
 Version: 1.0.0
 Date: 2023-07-11
-Author: Mahedi AM Hasan, Paolo Cremaschi
-Maintainer: Mahedi AM Hasan <a.m.m.hasan@ucl.ac.uk>
+Authors@R: c(
+    person("A M Mahedi", "Hasan", , "mahedi.bioinf@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8334-6490")),
+    person("Paolo", "Cremaschi", , "p.cremaschi@ucl.ac.uk", role = c("aut", "ctb"),
+           comment = c(ORCID = "0000-0000-0000-0000"))
+  )
+Maintainer: Mahedi A M Hasan <a.m.m.hasan@ucl.ac.uk>
 License: MIT + file LICENSE
+URL: https://github.com/AMMHasan/scRatch
+BugReports: https://github.com/AMMHasan/scRatch/issues
 Description: This package provide functions to reconstruct tumor clone phylogeny based on copy-number variants.
+Depends: 
+    R (>= 2.10)
+Imports: 
+    ACE (>= 1.18.0)
 biocViews:
-Depends: QDNAseq, ACE
-RoxygenNote: 6.0.1
+Suggests: 
+    ggplot2 (>= 3.4.3),
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
