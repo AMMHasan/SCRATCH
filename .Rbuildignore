@@ -4,3 +4,4 @@
 .git/*
 ^.*\.Rproj$
 ^\.Rproj\.user$
+./R/old_script.R

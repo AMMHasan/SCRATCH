@@ -15,9 +15,17 @@ URL: https://github.com/AMMHasan/scRatch
 BugReports: https://github.com/AMMHasan/scRatch/issues
 Description: This package provide functions to reconstruct tumor clone phylogeny based on copy-number variants.
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10),
+    tidyverse (>= 2.0.0)
 Imports: 
-    ACE (>= 1.18.0)
+    ACE (>= 1.18.0),
+    Biobase (>= 2.16.0),
+    BSgenome.Hsapiens.UCSC.hg19 (>= 1.4.3),
+    CGHbase (>= 1.60.0),
+    CGHcall (>= 2.62.0),
+    magrittr (>= 2.0.3),
+    QDNAseq (>= 1.36.0),
+    QDNAseq.hg19 (>= 1.30.0)
 biocViews:
 Suggests: 
     ggplot2 (>= 3.4.3),
