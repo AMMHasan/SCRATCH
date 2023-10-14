@@ -1,17 +1,3 @@
-require(QDNAseq)
-require(QDNAseq.hg19)
-require(ACE)
-require(Biobase)
-require(BSgenome.Hsapiens.UCSC.hg19)
-require(CGHbase)
-require(CGHcall)
-require(tidyverse)
-
-
-options(stringsAsFactors = FALSE)
-
-
-
 # PCE_list <- list()
 
 #' generate CN df
@@ -19,7 +5,19 @@ options(stringsAsFactors = FALSE)
 #' @param BAM_path path of .bam files
 #' @param pattern_PEA pattern for the project samples
 #' @param bin_size bin size to calculate copy number by QDNAseq
-#'
+#' @importFrom magrittr %>%
+#' @name %>%
+#' @rdname pipe
+#' @import ACE
+#' @import Biobase
+#' @import BSgenome.Hsapiens.UCSC.hg19
+#' @import CGHbase
+#' @import CGHcall
+#' @import tidyverse
+#' @import dplyr
+#' @import magrittr
+#' @import QDNAseq
+#' @import QDNAseq.hg19
 #' @return a dataframe
 #' @export
 #'
@@ -30,6 +28,7 @@ options(stringsAsFactors = FALSE)
 #' generate_CN_df(BAM_path,pattern_PEA, bin_size)
 #' 
 #' 
+#' '%>%' <- magrittr::"%>%"
 generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
   
   sampleFileNames <- setdiff(
@@ -43,9 +42,9 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
   bamFiles <- file.path(BAM_path, sampleFileNames)
   
   
-  bins <- getBinAnnotations(binSize=bin_size) 
+  bins <- QDNAseq::getBinAnnotations(binSize=bin_size) 
   
-  readCounts <- binReadCounts(
+  readCounts <- QDNAseq::binReadCounts(
     bins = bins,
     bamfiles=bamFiles, 
     path=NULL, # as the bamfiles contain the full path 
@@ -70,7 +69,7 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
   )
   
   
-  readCountsFiltered <- applyFilters(
+  readCountsFiltered <- QDNAseq::applyFilters(
     readCounts, 
     residual=TRUE, 
     blacklist=TRUE,
@@ -79,7 +78,7 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
     chromosomes=c("Y", "MT")
   )
   
-  readCountsFiltered <- estimateCorrection(
+  readCountsFiltered <- QDNAseq::estimateCorrection(
     readCountsFiltered, 
     span=0.65, 
     family="symmetric", 
@@ -89,20 +88,20 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
     variables=c("gc", "mappability")
   )
   
-  copyNumbers <- correctBins(readCountsFiltered)
+  copyNumbers <- QDNAseq::correctBins(readCountsFiltered)
   
-  copyNumbersNormalized <- normalizeBins(
+  copyNumbersNormalized <- QDNAseq::normalizeBins(
     copyNumbers,
     method="median", 
     force=FALSE)
   
   
-  copyNumbersSmooth <- smoothOutlierBins(
+  copyNumbersSmooth <- QDNAseq::smoothOutlierBins(
     copyNumbersNormalized,
     logTransform=TRUE, 
     force=FALSE)
   
-  copyNumbersSegmented <- segmentBins(
+  copyNumbersSegmented <- QDNAseq::segmentBins(
     copyNumbersSmooth, 
     transformFun="log2",
     smoothBy=FALSE, 
@@ -114,13 +113,13 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
   )
   
   
-  copyNumbersSegmented <- normalizeSegmentedBins(
+  copyNumbersSegmented <- QDNAseq::normalizeSegmentedBins(
     copyNumbersSegmented,
     force = F
   )
   
   
-  copyNumbersCalled <- callBins(
+  copyNumbersCalled <- QDNAseq::callBins(
     copyNumbersSegmented, 
     organism="human", 
     method="CGHcall",
@@ -128,11 +127,13 @@ generate_CN_df <- function(BAM_path,pattern_PEA, bin_size){
     #cutoffs=log2(c(deletion = 0.5, loss = 1.5, gain = 2.5, amplification = 10)/2)
   )
   
-  cgh <- makeCgh(copyNumbersCalled)
+  cgh <- QDNAseq::makeCgh(copyNumbersCalled)
   
   CN_df <- CGHbase::segmented(cgh) %>% 
-    data.frame %>% 
-    mutate(position = rownames(.)) 
+    data.frame
+  position <- rownames(CN_df)
+  CN_df <- CN_df %>% 
+    dplyr::mutate(position = position) 
   return(CN_df)
 }
 
