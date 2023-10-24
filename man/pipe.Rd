@@ -5,14 +5,14 @@
 \alias{generate_copyNumberCalled_obj}
 \title{generate copy number call object}
 \usage{
-generate_copyNumberCalled_obj(BAM_path, pattern_PEA, bin_size)
+generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
 }
 \arguments{
 \item{BAM_path}{path of .bam files}
 
-\item{bin_size}{bin size to calculate copy number by QDNAseq}
-
 \item{pattern}{pattern for the project samples}
+
+\item{bin_size}{bin size to calculate copy number by QDNAseq}
 }
 \value{
 a QDNAseq object
@@ -23,8 +23,8 @@ generate copy number call object
 \examples{
 BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 bin_size=500
-pattern_PEA = "PEA310"
-generate_copyNumberCalled_obj(BAM_path,pattern_PEA, bin_size)
+pattern = "PEA310"
+generate_copyNumberCalled_obj(BAM_path,pattern, bin_size)
 
 
 

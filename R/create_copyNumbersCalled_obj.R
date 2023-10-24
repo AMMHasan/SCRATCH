@@ -22,16 +22,16 @@
 #' @examples
 #' BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 #' bin_size=500
-#' pattern_PEA = "PEA310"
-#' generate_copyNumberCalled_obj(BAM_path,pattern_PEA, bin_size)
+#' pattern = "PEA310"
+#' generate_copyNumberCalled_obj(BAM_path,pattern, bin_size)
 #' 
 #' 
 #'
-generate_copyNumberCalled_obj <- function(BAM_path,pattern_PEA, bin_size){
+generate_copyNumberCalled_obj <- function(BAM_path,pattern, bin_size){
   
   sampleFileNames <- setdiff(
     list.files(path = BAM_path, 
-               pattern = pattern_PEA), 
+               pattern = pattern), 
     list.files(path = BAM_path, 
                pattern = ".bai")
   )

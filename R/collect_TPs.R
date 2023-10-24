@@ -3,6 +3,7 @@
 #' @param BAM_path path of the .bam files
 #' @param bin_size bin size to calculate copy number by QDNAseq
 #' @param pattern pattern for the project samples
+#' @param copyNumbersCalled_obj a QDNAseq object
 #' @importFrom magrittr %>%
 #' @import ACE
 #' @import Biobase

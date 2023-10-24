@@ -12,6 +12,8 @@ generate_TP_binary_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
 \item{pattern}{pattern for the project samples}
 
 \item{bin_size}{bin size to calculate copy number by QDNAseq}
+
+\item{copyNumbersCalled_obj}{a QDNAseq object}
 }
 \value{
 a binary matrix
