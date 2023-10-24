@@ -1,7 +1,7 @@
 #' generate copy number call object
 #'
 #' @param BAM_path path of .bam files
-#' @param pattern_PEA pattern for the project samples
+#' @param pattern pattern for the project samples
 #' @param bin_size bin size to calculate copy number by QDNAseq
 #' @importFrom magrittr %>%
 #' @name %>%
