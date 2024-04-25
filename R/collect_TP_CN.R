@@ -35,7 +35,7 @@ generate_TP_CN_matrix <- function(BAM_path,pattern, bin_size, copyNumbersCalled_
     test_df <- ACE::getadjustedsegments(ACE::objectsampletotemplate(copyNumbersCalled_obj, index = i), 
                                         cellularity = ACE::squaremodel((ACE::objectsampletotemplate(copyNumbersCalled_obj, index = i)))[["minimadf"]]$cellularity[1], 
                                         ploidy = ACE::squaremodel((ACE::objectsampletotemplate(copyNumbersCalled_obj, index = i)))[["minimadf"]]$ploidy[1]) %>% 
-      dplyr::select(Chromosome, Start, End,Segment_Mean, Copies) %>% 
+      dplyr::select(Chromosome, Start, End, Segment_Mean, Copies) %>% 
       dplyr::mutate(TP_S = paste0(Chromosome,":",Start),TP_E=paste0(Chromosome,":",End))
     TP_list[[i]] <- rbind(test_df %>% dplyr::select(TP=TP_S, CN=Copies),
                           test_df %>% dplyr::select(TP=TP_E, CN=Copies) ) 
