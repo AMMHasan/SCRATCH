@@ -23,9 +23,9 @@ create Transition Point binary matrics
 }
 \examples{
 BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
-bin_size=500
-pattern = c(paste0("PEA310","_1"))
-copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path,pattern, bin_size)
-generate_TP_binary_matrix(BAM_path,pattern, bin_size,copyNumbersCalled_obj)
+bin_size <- 500
+pattern <- c(paste0("PEA310", "_1"))
+copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
+generate_TP_binary_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
 
 }

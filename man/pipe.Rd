@@ -22,10 +22,8 @@ generate copy number call object
 }
 \examples{
 BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
-bin_size=500
-pattern = "PEA310"
-generate_copyNumberCalled_obj(BAM_path,pattern, bin_size)
-
-
+bin_size <- 500
+pattern <- "PEA310"
+generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
 
 }
