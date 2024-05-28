@@ -18,7 +18,9 @@
 build_tree <- function(TP_CN_mat) {
   met_tree <- TP_CN_mat %>%
     stats::cor() %>%
-    stats::dist() %>%
+    tibble::as_tibble() %>%
+    mutate_all(function(x){1-x}) %>% 
+    stats::as.dist() %>%
     phangorn::upgma()
 
   return(met_tree)

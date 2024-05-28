@@ -1,7 +1,7 @@
 #' create Transition Point binary matrics
 #'
 #' @param BAM_path path of the .bam files
-#' @param bin_size bin size to calculate copy number by QDNAseq
+##' @param bin_size bin size to calculate copy number by QDNAseq
 #' @param pattern pattern for the project samples
 #' @param copyNumbersCalled_obj a QDNAseq object
 #' @importFrom magrittr %>%
@@ -25,7 +25,7 @@
 #' copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
 #' generate_TP_CN_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
 #'
-generate_TP_CN_matrix <- function(BAM_path, pattern, bin_size, copyNumbersCalled_obj) {
+generate_TP_CN_matrix <- function(BAM_path, pattern, copyNumbersCalled_obj) {
   name_tumour_samples <- tumour_samples(BAM_path, pattern)
 
   TP_list <- list()

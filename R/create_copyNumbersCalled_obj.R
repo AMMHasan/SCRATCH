@@ -23,9 +23,13 @@
 #' BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 #' bin_size <- 500
 #' pattern <- "PEA310"
+#' seed = 101
 #' generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
 #'
-generate_copyNumberCalled_obj <- function(BAM_path, pattern, bin_size) {
+
+
+generate_copyNumberCalled_obj <- function(BAM_path, pattern, bin_size, seed=NULL) {
+  set.seed(seed)
   sampleFileNames <- setdiff(
     list.files(
       path = BAM_path,
@@ -110,7 +114,8 @@ generate_copyNumberCalled_obj <- function(BAM_path, pattern, bin_size) {
     undo.splits = "sdundo",
     undo.SD = 1,
     force = FALSE
-    # seeds=NULL
+    # ,
+    # seeds=seeds
   )
 
 
