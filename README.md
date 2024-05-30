@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-scRatch is a an implementation of hierarchical clustering based algorithm to determine the evolutionary relationship of metastases based on correlation of the copy number at the transition points, which are the genomic positions of copy number changes between adjacent genomic segments derived from copy number analysis on whole genome sequencing data. This is a beta version before an official release.
+scRatch is a an implementation of hierarchical clustering based algorithm to determine the evolutionary relationship of metastases based on correlation of the copy number at the transition points, which are the genomic positions of copy number changes between adjacent genomic segments derived from copy number analysis on whole genome sequencing data. This algorithm was first used in our Nature Communications paper (DOI: https://doi.org/10.1038/s41467-023-40315-9). This is a beta version before an official release.
 
 ## Installation
 
