@@ -24,7 +24,7 @@
 #' bin_size <- 500
 #' pattern <- "PEA310"
 #' seed = 101
-#' generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
+#' generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
 #'
 
 

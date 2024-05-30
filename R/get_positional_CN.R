@@ -24,7 +24,8 @@
 #' BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 #' bin_size <- 500
 #' pattern <- "PEA310"
-#' copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
+#' seed = 101
+#' copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
 #' chr <- c(1, 2, 13)
 #' pos <- c(1000301, 14000000, 60000000)
 #' get_positional_CN(BAM_path, pattern, bin_size, copyNumbersCalled_obj, chr, pos)

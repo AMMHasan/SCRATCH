@@ -22,10 +22,11 @@
 #' BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 #' bin_size <- 500
 #' pattern <- c(paste0("PEA310", "_1"))
-#' copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
-#' generate_TP_binary_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
+#' seed = 101
+#' copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
+#' generate_TP_binary_matrix(BAM_path, pattern, copyNumbersCalled_obj)
 #'
-generate_TP_binary_matrix <- function(BAM_path, pattern, bin_size, copyNumbersCalled_obj) {
+generate_TP_binary_matrix <- function(BAM_path, pattern, copyNumbersCalled_obj) {
   name_tumour_samples <- tumour_samples(BAM_path, pattern)
 
   TP_list <- list()

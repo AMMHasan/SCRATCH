@@ -4,16 +4,16 @@
 \alias{generate_TP_binary_matrix}
 \title{create Transition Point binary matrics}
 \usage{
-generate_TP_binary_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
+generate_TP_binary_matrix(BAM_path, pattern, copyNumbersCalled_obj)
 }
 \arguments{
 \item{BAM_path}{path of the .bam files}
 
 \item{pattern}{pattern for the project samples}
 
-\item{bin_size}{bin size to calculate copy number by QDNAseq}
-
 \item{copyNumbersCalled_obj}{a QDNAseq object}
+
+\item{bin_size}{bin size to calculate copy number by QDNAseq}
 }
 \value{
 a binary matrix
@@ -25,7 +25,8 @@ create Transition Point binary matrics
 BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 bin_size <- 500
 pattern <- c(paste0("PEA310", "_1"))
-copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
-generate_TP_binary_matrix(BAM_path, pattern, bin_size, copyNumbersCalled_obj)
+seed = 101
+copyNumbersCalled_obj <- generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
+generate_TP_binary_matrix(BAM_path, pattern, copyNumbersCalled_obj)
 
 }

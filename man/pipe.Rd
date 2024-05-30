@@ -5,7 +5,7 @@
 \alias{generate_copyNumberCalled_obj}
 \title{generate copy number call object}
 \usage{
-generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
+generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed = NULL)
 }
 \arguments{
 \item{BAM_path}{path of .bam files}
@@ -24,6 +24,7 @@ generate copy number call object
 BAM_path <- "~/Documents/Research/prostate_cancer/PEACE/samples/tumour_BAM_subset/"
 bin_size <- 500
 pattern <- "PEA310"
-generate_copyNumberCalled_obj(BAM_path, pattern, bin_size)
+seed = 101
+generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
 
 }
