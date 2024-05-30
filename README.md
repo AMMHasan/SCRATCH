@@ -27,13 +27,15 @@ bin_size <- 500
 pattern <- "PEA310"
 seed <- 101
 
-
+# Create a copynumberCalled object:
 CN_called_obj <- 
   generate_copyNumberCalled_obj(BAM_path, pattern, bin_size, seed)
-
+  
+# Create a matrix of copynumbers at the transition points:
 TP_CN_mat <- 
   generate_TP_CN_matrix(BAM_path, pattern, CN_called_obj) 
 
+# Build and plot metastatic relationship: 
 build_tree(TP_CN_mat) %>% 
   plot
 ```
